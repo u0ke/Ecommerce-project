@@ -1,61 +1,115 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ecommerce Cart</title>
 
-    <link rel="stylesheet" href="/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Google Font -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Flaticon Uicons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons.css"
+    >
 </head>
+
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
     <header class="header">
 
         <div class="container nav">
 
             <!-- Logo -->
             <a href="#" class="logo">
+
                 <div class="logo-mark">
                     E
                 </div>
 
                 <span>Ecommerce</span>
+
             </a>
+
 
             <!-- Navigation -->
             <nav class="navigation">
+
                 <a href="#">Home</a>
+
                 <a href="#">Categories</a>
+
                 <a href="#">About</a>
+
                 <a href="#">Contact</a>
+
             </nav>
 
-            <!-- Actions -->
+
+            <!-- Navigation Actions -->
             <div class="nav-actions">
 
-                <button class="icon-btn" aria-label="Search">
-                    🔍
+                <!-- Search -->
+                <button
+                    class="icon-btn"
+                    aria-label="Search"
+                    title="Search"
+                >
+                    <i class="fi fi-rr-search"></i>
                 </button>
 
-                <button class="icon-btn cart-btn" aria-label="Cart">
-                    🛒
-                    <span class="cart-count">3</span>
+
+                <!-- Cart -->
+                <button
+                    class="icon-btn cart-btn"
+                    aria-label="Shopping cart"
+                    title="Cart"
+                >
+
+                    <i class="fi fi-rr-shopping-cart"></i>
+
+                    <span class="cart-count">
+                        3
+                    </span>
+
                 </button>
 
-                <button class="icon-btn" aria-label="Account">
-                    👤
+
+                <!-- User -->
+                <button
+                    class="icon-btn"
+                    aria-label="Account"
+                    title="Account"
+                >
+                    <i class="fi fi-rr-user"></i>
                 </button>
 
-                <button class="theme-btn" id="themeToggle">
-                    ☀️
+
+                <!-- Theme -->
+                <button
+                    class="theme-btn"
+                    id="themeToggle"
+                    aria-label="Toggle theme"
+                    title="Toggle theme"
+                >
+                    <i class="fi fi-rr-sun"></i>
                 </button>
 
             </div>
@@ -65,77 +119,136 @@
     </header>
 
 
-    <!-- ================= PROMO ================= -->
+
+    <!-- =========================================
+         PROMO BANNER
+    ========================================== -->
+
     <section class="promo">
+
         <div class="container promo-content">
 
-            <span class="promo-badge">25% OFF</span>
+            <span class="promo-badge">
+                25% OFF
+            </span>
 
             <p>
                 Get 25% OFF on your first order.
             </p>
 
             <a href="#">
-                Shop now →
+                Shop now
+                <i class="fi fi-rr-arrow-right"></i>
             </a>
 
         </div>
+
     </section>
 
 
-    <!-- ================= MAIN ================= -->
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
     <main class="container main">
+
 
         <!-- Breadcrumb -->
         <div class="breadcrumb">
-            <a href="#">Home</a>
-            <span>/</span>
-            <span>Cart</span>
+
+            <a href="#">
+                Home
+            </a>
+
+            <i class="fi fi-rr-angle-small-right"></i>
+
+            <span>
+                Cart
+            </span>
+
         </div>
 
 
-        <!-- Page heading -->
+
+        <!-- Page Heading -->
         <div class="page-heading">
 
             <div>
-                <span class="eyebrow">YOUR SHOPPING BAG</span>
+
+                <span class="eyebrow">
+                    YOUR SHOPPING BAG
+                </span>
 
                 <h1>
                     Your cart
-                    <span>(3 items)</span>
+                    <span>
+                        (3 items)
+                    </span>
                 </h1>
 
                 <p>
                     Review your items before completing your purchase.
                 </p>
+
             </div>
 
-            <a href="#" class="continue-shopping">
-                ← Continue shopping
+
+            <a
+                href="#"
+                class="continue-shopping"
+            >
+
+                <i class="fi fi-rr-arrow-left"></i>
+
+                Continue shopping
+
             </a>
 
         </div>
 
 
-        <!-- ================= CART ================= -->
+
+        <!-- =========================================
+             CART LAYOUT
+        ========================================== -->
+
         <section class="cart-layout">
 
 
-            <!-- LEFT SIDE -->
+            <!-- =====================================
+                 CART ITEMS
+            ====================================== -->
+
             <div class="cart-items">
 
-                <!-- Product 1 -->
+
+                <!-- PRODUCT 1 -->
+
                 <article class="product-card">
 
+
+                    <!-- Product Image -->
+
                     <div class="product-image">
-                        <img src="./images/Product image.png" alt="Product">
+
+                        <img
+                            src="./images/Product image.png"
+                            alt="Premium Wireless Headphones"
+                        >
+
                     </div>
 
+
+                    <!-- Product Info -->
+
                     <div class="product-info">
+
 
                         <div class="product-top">
 
                             <div>
+
                                 <span class="product-category">
                                     Electronics
                                 </span>
@@ -148,25 +261,51 @@
                                     High quality wireless headphones
                                     with immersive sound.
                                 </p>
+
                             </div>
 
-                            <button class="remove-btn">
-                                ×
+
+                            <!-- Remove -->
+
+                            <button
+                                class="remove-btn"
+                                aria-label="Remove product"
+                                title="Remove"
+                            >
+                                <i class="fi fi-rr-cross-small"></i>
                             </button>
 
                         </div>
 
+
+
                         <div class="product-bottom">
+
+
+                            <!-- Quantity -->
 
                             <div class="quantity">
 
-                                <button>−</button>
+                                <button
+                                    aria-label="Decrease quantity"
+                                >
+                                    <i class="fi fi-rr-minus"></i>
+                                </button>
 
-                                <span>1</span>
+                                <span>
+                                    1
+                                </span>
 
-                                <button>+</button>
+                                <button
+                                    aria-label="Increase quantity"
+                                >
+                                    <i class="fi fi-rr-plus"></i>
+                                </button>
 
                             </div>
+
+
+                            <!-- Price -->
 
                             <strong>
                                 $75.00
@@ -179,18 +318,32 @@
                 </article>
 
 
-                <!-- Product 2 -->
+
+                <!-- =================================
+                     PRODUCT 2
+                ================================== -->
+
                 <article class="product-card">
 
+
                     <div class="product-image">
-                        <img src="./images/Product image copy.png" alt="Product">
+
+                        <img
+                            src="./images/Product image copy.png"
+                            alt="Minimal Desk Accessory"
+                        >
+
                     </div>
 
+
+
                     <div class="product-info">
+
 
                         <div class="product-top">
 
                             <div>
+
                                 <span class="product-category">
                                     Accessories
                                 </span>
@@ -203,25 +356,45 @@
                                     A simple and elegant accessory
                                     for your workspace.
                                 </p>
+
                             </div>
 
-                            <button class="remove-btn">
-                                ×
+
+                            <button
+                                class="remove-btn"
+                                aria-label="Remove product"
+                                title="Remove"
+                            >
+                                <i class="fi fi-rr-cross-small"></i>
                             </button>
 
                         </div>
 
+
+
                         <div class="product-bottom">
+
 
                             <div class="quantity">
 
-                                <button>−</button>
+                                <button
+                                    aria-label="Decrease quantity"
+                                >
+                                    <i class="fi fi-rr-minus"></i>
+                                </button>
 
-                                <span>1</span>
+                                <span>
+                                    1
+                                </span>
 
-                                <button>+</button>
+                                <button
+                                    aria-label="Increase quantity"
+                                >
+                                    <i class="fi fi-rr-plus"></i>
+                                </button>
 
                             </div>
+
 
                             <strong>
                                 $22.00
@@ -234,18 +407,32 @@
                 </article>
 
 
-                <!-- Product 3 -->
+
+                <!-- =================================
+                     PRODUCT 3
+                ================================== -->
+
                 <article class="product-card">
 
+
                     <div class="product-image">
-                        <img src="./images/Product image.png" alt="Product">
+
+                        <img
+                            src="./images/Product image.png"
+                            alt="Everyday Essentials"
+                        >
+
                     </div>
 
+
+
                     <div class="product-info">
+
 
                         <div class="product-top">
 
                             <div>
+
                                 <span class="product-category">
                                     Lifestyle
                                 </span>
@@ -258,25 +445,45 @@
                                     Designed to make your everyday
                                     experience easier.
                                 </p>
+
                             </div>
 
-                            <button class="remove-btn">
-                                ×
+
+                            <button
+                                class="remove-btn"
+                                aria-label="Remove product"
+                                title="Remove"
+                            >
+                                <i class="fi fi-rr-cross-small"></i>
                             </button>
 
                         </div>
 
+
+
                         <div class="product-bottom">
+
 
                             <div class="quantity">
 
-                                <button>−</button>
+                                <button
+                                    aria-label="Decrease quantity"
+                                >
+                                    <i class="fi fi-rr-minus"></i>
+                                </button>
 
-                                <span>1</span>
+                                <span>
+                                    1
+                                </span>
 
-                                <button>+</button>
+                                <button
+                                    aria-label="Increase quantity"
+                                >
+                                    <i class="fi fi-rr-plus"></i>
+                                </button>
 
                             </div>
+
 
                             <strong>
                                 $28.00
@@ -289,20 +496,32 @@
                 </article>
 
 
-                <!-- Secure shopping -->
+
+                <!-- =================================
+                     SECURE CHECKOUT
+                ================================== -->
+
                 <div class="secure-box">
 
+
                     <div class="secure-icon">
-                        ✓
+
+                        <i class="fi fi-rr-shield-check"></i>
+
                     </div>
 
+
                     <div>
-                        <strong>Secure checkout</strong>
+
+                        <strong>
+                            Secure checkout
+                        </strong>
 
                         <p>
                             Your payment information is protected
                             with secure encryption.
                         </p>
+
                     </div>
 
                 </div>
@@ -310,22 +529,38 @@
             </div>
 
 
-            <!-- ================= SUMMARY ================= -->
+
+            <!-- =========================================
+                 ORDER SUMMARY
+            ========================================== -->
+
             <aside class="summary">
 
-                <div class="summary-header">
-                    <h2>Order summary</h2>
 
-                    <span>3 items</span>
+                <!-- Summary Header -->
+
+                <div class="summary-header">
+
+                    <h2>
+                        Order summary
+                    </h2>
+
+                    <span>
+                        3 items
+                    </span>
+
                 </div>
 
 
+
                 <!-- Coupon -->
+
                 <div class="coupon">
 
                     <label for="coupon">
                         Have a promo code?
                     </label>
+
 
                     <div class="coupon-input">
 
@@ -344,31 +579,61 @@
                 </div>
 
 
-                <!-- Prices -->
+
+                <!-- Price Details -->
+
                 <div class="summary-lines">
 
-                    <div>
-                        <span>Subtotal</span>
-                        <strong>$125.00</strong>
-                    </div>
 
                     <div>
-                        <span>Shipping</span>
-                        <strong class="free">Free</strong>
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong>
+                            $125.00
+                        </strong>
+
                     </div>
 
+
                     <div>
-                        <span>Tax</span>
-                        <strong>$3.75</strong>
+
+                        <span>
+                            Shipping
+                        </span>
+
+                        <strong class="free">
+                            Free
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Tax
+                        </span>
+
+                        <strong>
+                            $3.75
+                        </strong>
+
                     </div>
 
                 </div>
 
 
+
                 <!-- Total -->
+
                 <div class="total">
 
-                    <span>Total</span>
+                    <span>
+                        Total
+                    </span>
 
                     <strong>
                         $128.75
@@ -377,17 +642,24 @@
                 </div>
 
 
-                <!-- Checkout -->
+
+                <!-- Checkout Button -->
+
                 <button class="checkout-btn">
+
                     Proceed to checkout
-                    <span>→</span>
+
+                    <i class="fi fi-rr-arrow-right"></i>
+
                 </button>
 
 
-                <!-- Payment -->
+
+                <!-- Payment Info -->
+
                 <div class="payment-info">
 
-                    <span>🔒</span>
+                    <i class="fi fi-rr-lock"></i>
 
                     <p>
                         Secure payment · Free shipping
@@ -402,20 +674,30 @@
     </main>
 
 
-    <!-- ================= FOOTER ================= -->
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
     <footer class="footer">
 
         <div class="container footer-content">
 
+
             <div>
 
                 <a href="#" class="logo">
+
                     <div class="logo-mark">
                         E
                     </div>
 
-                    <span>Ecommerce</span>
+                    <span>
+                        Ecommerce
+                    </span>
+
                 </a>
+
 
                 <p>
                     Simple products. Better shopping.
@@ -423,13 +705,27 @@
 
             </div>
 
+
+
+            <!-- Footer Links -->
+
             <div class="footer-links">
 
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Support</a>
+                <a href="#">
+                    Privacy
+                </a>
+
+                <a href="#">
+                    Terms
+                </a>
+
+                <a href="#">
+                    Support
+                </a>
 
             </div>
+
+
 
             <p class="copyright">
                 © 2026 Ecommerce. All rights reserved.
@@ -440,17 +736,33 @@
     </footer>
 
 
-    <!-- ================= THEME ================= -->
+
+    <!-- =========================================
+         THEME SCRIPT
+    ========================================== -->
+
     <script>
 
-        const themeToggle = document.getElementById("themeToggle");
+        const themeToggle =
+            document.getElementById("themeToggle");
 
-        const savedTheme = localStorage.getItem("theme");
+        const savedTheme =
+            localStorage.getItem("theme");
+
+
+        // Load saved theme
 
         if (savedTheme === "light") {
+
             document.body.classList.add("light");
-            themeToggle.textContent = "🌙";
+
+            themeToggle.innerHTML =
+                '<i class="fi fi-rr-moon"></i>';
+
         }
+
+
+        // Toggle theme
 
         themeToggle.addEventListener("click", () => {
 
@@ -459,17 +771,22 @@
             const isLight =
                 document.body.classList.contains("light");
 
+
             localStorage.setItem(
                 "theme",
                 isLight ? "light" : "dark"
             );
 
-            themeToggle.textContent =
-                isLight ? "🌙" : "☀️";
+
+            themeToggle.innerHTML = isLight
+                ? '<i class="fi fi-rr-moon"></i>'
+                : '<i class="fi fi-rr-sun"></i>';
 
         });
 
     </script>
 
 </body>
+
 </html>
+```
