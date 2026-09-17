@@ -1,397 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce — Cart</title>
 
-    <!-- Set the theme before first paint so there's no flash of the wrong mode -->
-    <script>
-        (function () {
-            const saved = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (saved === 'dark' || (!saved && prefersDark)) {
-                document.documentElement.classList.add('dark');
-            }
-        })();
-    </script>
+    <title>Ecommerce Cart</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
-        rel="stylesheet">
-
-    <style type="text/tailwindcss">
-        /* Class-based dark mode: toggle the `dark` class on <html> */
-        @custom-variant dark (&:where(.dark, .dark *));
-
-        @theme {
-            /* base palette */
-            --color-dark-blue: #0E1422;
-            --color-neutral-white: #F6F6F6;
-            --color-neutral-black: #5C5F6A;
-            --color-neutral: #E9E9EB;
-
-            /* dark theme surfaces */
-            --color-surface-dark: #0B0E17;
-            --color-card-dark: #161B2C;
-            --color-border-dark: #262C40;
-            --color-muted-dark: #9CA3AF;
-
-            /* fonts */
-            --font-Manrope: "Manrope", sans-serif;
-            --font-Inter: "Inter", sans-serif;
-        }
-
-        body {
-            transition: background-color 0.25s ease, color 0.25s ease;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-white text-dark-blue dark:bg-surface-dark dark:text-neutral-white">
+<body>
 
-    <div class="bg-dark-blue text-white text-center text-[14px] p-2 dark:bg-card-dark">
-        Get 25% OFF on your first order.
-        <button class="underline underline-offset-2 font-medium animate-[bounce_2s_ease-in-out_infinite]"><a href="#">Order Now</a></button>
-    </div>
+    <!-- ================= HEADER ================= -->
+    <header class="header">
 
-    <header
-        class="max-w-[1400px] mx-auto px-6 lg:px-[80px] py-5 flex flex-wrap items-center justify-between gap-4 border-b border-neutral dark:border-border-dark">
-        <div class="flex items-center gap-[12px] ">
-            <img src="./images/Logomark.png" alt="logo" class="animate-[spin_8s_ease-in-out_infinite]">
-            <h1 class="text-[20px] font-Manrope font-extrabold text-dark-blue dark:text-neutral-white">Ecommerce</h1>
-        </div>
+        <div class="container nav">
 
-        <nav class="hidden md:flex gap-[32px]">
-            <a href="#" class="text-[14px] font-medium hover:text-neutral-black dark:hover:text-muted-dark">Home</a>
-            <el-dropdown class="inline-block">
-                <button class="inline-flex items-center hover:text-neutral-black dark:hover:text-muted-dark">
-                    Categories
-                    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
-                        class="size-5 text-gray-400 dark:text-muted-dark">
-                        <path
-                            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                            clip-rule="evenodd" fill-rule="evenodd" />
-                    </svg>
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <div class="logo-mark">
+                    E
+                </div>
+
+                <span>Ecommerce</span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="navigation">
+                <a href="#">Home</a>
+                <a href="#">Categories</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="nav-actions">
+
+                <button class="icon-btn" aria-label="Search">
+                    🔍
                 </button>
-            </el-dropdown>
-            <a href="#" class="text-[14px] font-medium hover:text-neutral-black dark:hover:text-muted-dark">About</a>
-            <a href="#"
-                class="text-[14px] font-medium hover:text-neutral-black dark:hover:text-muted-dark">Contact</a>
-        </nav>
 
-        <div class="flex items-center gap-6 sm:gap-8">
-            <div class="relative hidden sm:block">
-                <img src="./images/Search.png"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 w-[18px] h-[17px] dark:invert dark:opacity-70" />
-                <input type="text" placeholder="Search products"
-                    class="border border-neutral dark:border-border-dark dark:bg-card-dark dark:text-neutral-white dark:placeholder:text-muted-dark py-2 pl-10 pr-3 rounded-lg text-[14px] focus:outline-none focus:ring-2 focus:ring-dark-blue dark:focus:ring-neutral-white/40" />
+                <button class="icon-btn cart-btn" aria-label="Cart">
+                    🛒
+                    <span class="cart-count">3</span>
+                </button>
+
+                <button class="icon-btn" aria-label="Account">
+                    👤
+                </button>
+
+                <button class="theme-btn" id="themeToggle">
+                    ☀️
+                </button>
+
             </div>
 
-            <div class="flex items-center gap-[20px] sm:gap-[28px]">
-                <img src="./images/Icon.png" alt="cart icon" class="dark:invert dark:opacity-90">
-                <img src="./images/User.png" alt="user icon" class="dark:invert dark:opacity-90">
-
-                <!-- Theme toggle: one button, swaps icon + label based on current mode -->
-                <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
-                    class="flex items-center justify-center w-9 h-9 rounded-full border border-neutral dark:border-border-dark cursor-pointer hover:bg-neutral-white dark:hover:bg-card-dark transition-colors">
-                    <img id="theme-toggle-icon" src="./images/darkMode.png" alt="" class="w-[18px] h-[18px]">
-                </button>
-            </div>
         </div>
+
     </header>
 
-    <main>
-        <section class="max-w-[1400px] mx-auto">
-            <div class="py-[35px] px-6 lg:px-[80px]">
-                <h2 class="text-[24px] font-bold font-Inter">
-                    Cart
-                </h2>
-                <p class="font-Inter text-[14px] font-medium text-neutral-black dark:text-muted-dark">
-                    Ecommerce
-                    <span class="mx-2">›</span>
-                    <span class="text-dark-blue dark:text-neutral-white">Cart</span>
+
+    <!-- ================= PROMO ================= -->
+    <section class="promo">
+        <div class="container promo-content">
+
+            <span class="promo-badge">25% OFF</span>
+
+            <p>
+                Get 25% OFF on your first order.
+            </p>
+
+            <a href="#">
+                Shop now →
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="container main">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <span>/</span>
+            <span>Cart</span>
+        </div>
+
+
+        <!-- Page heading -->
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">YOUR SHOPPING BAG</span>
+
+                <h1>
+                    Your cart
+                    <span>(3 items)</span>
+                </h1>
+
+                <p>
+                    Review your items before completing your purchase.
                 </p>
             </div>
 
-            <div class="max-w-[1200px] mx-auto px-6 lg:px-4 py-6 lg:py-10">
-                <div class="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start">
+            <a href="#" class="continue-shopping">
+                ← Continue shopping
+            </a>
 
-                    <!-- CART ITEMS -->
-                    <div class="flex-1 w-full">
-                        <h2 class="font-Inter text-[16px] font-semibold mb-[18px] text-dark-blue dark:text-neutral-white">
-                            Your cart <span class="text-neutral-black dark:text-muted-dark font-normal">(3 items)</span>
-                        </h2>
-                        <hr class="border-neutral dark:border-border-dark mb-5" />
+        </div>
 
-                        <div class="space-y-4">
 
-                            <!-- Item card 1 -->
-                            <div
-                                class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 rounded-xl border border-transparent hover:border-neutral dark:hover:border-border-dark p-3 -mx-3 transition-colors">
-                                <div
-                                    class="w-24 h-24 shrink-0 bg-neutral-white dark:bg-card-dark rounded-lg flex items-center justify-center overflow-hidden">
-                                    <img src="./images/Product image.png" alt="Black T-shirt"
-                                        class="mix-blend-multiply dark:mix-blend-normal" />
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="font-Inter text-[14px] font-medium text-dark-blue dark:text-neutral-white">
-                                        Raw Black T-Shirt Lineup
-                                    </h3>
-                                    <p class="text-[14px] font-medium text-neutral-black dark:text-muted-dark">
-                                        Color:
-                                        <span
-                                            class="inline-block w-3 h-3 bg-green-800 rounded-full align-middle mx-1"></span>
-                                        — Size: M
-                                    </p>
-                                </div>
-                                <div class="text-[14px] font-Inter text-dark-blue dark:text-neutral-white font-semibold sm:w-16 sm:text-right">
-                                    $75.00
-                                </div>
-                                <div
-                                    class="flex items-center border border-gray-200 dark:border-border-dark rounded-lg p-1 bg-white dark:bg-card-dark">
-                                    <button
-                                        class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-surface-dark rounded text-gray-500 dark:text-muted-dark">-</button>
-                                    <span class="px-4 font-medium font-Inter">1</span>
-                                    <button
-                                        class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-surface-dark rounded text-gray-500 dark:text-muted-dark">+</button>
-                                </div>
-                                <button
-                                    class="p-2 text-gray-400 dark:text-muted-dark hover:text-red-500 transition-colors bg-neutral-white dark:bg-card-dark rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
+        <!-- ================= CART ================= -->
+        <section class="cart-layout">
 
-                            <!-- Item card 2 -->
-                            <div
-                                class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 rounded-xl border border-transparent hover:border-neutral dark:hover:border-border-dark p-3 -mx-3 transition-colors">
-                                <div
-                                    class="w-24 h-24 shrink-0 bg-neutral-white dark:bg-card-dark rounded-lg flex items-center justify-center overflow-hidden">
-                                    <img src="./images/Product image copy.png" alt="White T-shirt"
-                                        class="dark:mix-blend-normal" />
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="font-Inter text-[14px] font-medium text-dark-blue dark:text-neutral-white">
-                                        Essential Neutrals
-                                    </h3>
-                                    <p class="text-[14px] font-medium text-neutral-black dark:text-muted-dark">
-                                        Color:
-                                        <span
-                                            class="inline-block w-3 h-3 bg-blue-300 rounded-full align-middle mx-1"></span>
-                                        — Size: M
-                                    </p>
-                                </div>
-                                <div class="text-[14px] font-Inter text-dark-blue dark:text-neutral-white font-semibold sm:w-16 sm:text-right">
-                                    $22.00
-                                </div>
-                                <div
-                                    class="flex items-center border border-gray-200 dark:border-border-dark rounded-lg p-1 bg-white dark:bg-card-dark">
-                                    <button
-                                        class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-surface-dark rounded text-gray-500 dark:text-muted-dark">-</button>
-                                    <span class="px-4 font-medium font-Inter">1</span>
-                                    <button
-                                        class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-surface-dark rounded text-gray-500 dark:text-muted-dark">+</button>
-                                </div>
-                                <button
-                                    class="p-2 text-gray-400 dark:text-muted-dark hover:text-red-500 transition-colors bg-neutral-white dark:bg-card-dark rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
 
-                            <!-- Item card 3 (new) -->
-                            <div
-                                class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 rounded-xl border border-transparent hover:border-neutral dark:hover:border-border-dark p-3 -mx-3 transition-colors">
-                                <div
-                                    class="w-24 h-24 shrink-0 bg-neutral-white dark:bg-card-dark rounded-lg flex items-center justify-center overflow-hidden">
-                                    <img src="./images/Product image.png" alt="Sand T-shirt"
-                                        class="mix-blend-multiply dark:mix-blend-normal opacity-90" />
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="font-Inter text-[14px] font-medium text-dark-blue dark:text-neutral-white">
-                                        Studio Sand Tee
-                                    </h3>
-                                    <p class="text-[14px] font-medium text-neutral-black dark:text-muted-dark">
-                                        Color:
-                                        <span
-                                            class="inline-block w-3 h-3 bg-amber-200 rounded-full align-middle mx-1"></span>
-                                        — Size: S
-                                    </p>
-                                </div>
-                                <div class="text-[14px] font-Inter text-dark-blue dark:text-neutral-white font-semibold sm:w-16 sm:text-right">
-                                    $28.00
-                                </div>
-                                <div
-                                    class="flex items-center border border-gray-200 dark:border-border-dark rounded-lg p-1 bg-white dark:bg-card-dark">
-                                    <button
-                                        class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-surface-dark rounded text-gray-500 dark:text-muted-dark">-</button>
-                                    <span class="px-4 font-medium font-Inter">1</span>
-                                    <button
-                                        class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-surface-dark rounded text-gray-500 dark:text-muted-dark">+</button>
-                                </div>
-                                <button
-                                    class="p-2 text-gray-400 dark:text-muted-dark hover:text-red-500 transition-colors bg-neutral-white dark:bg-card-dark rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+            <!-- LEFT SIDE -->
+            <div class="cart-items">
+
+                <!-- Product 1 -->
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <img src="./images/Product image.png" alt="Product">
                     </div>
 
-                    <!-- ORDER SUMMARY CARD -->
-                    <aside
-                        class="w-full lg:w-[341px] rounded-2xl border border-neutral dark:border-border-dark p-8 bg-white dark:bg-card-dark shadow-sm dark:shadow-none">
-                        <h2 class="text-lg font-bold text-dark-blue dark:text-neutral-white mb-8">Order Summary</h2>
-                        <div class="space-y-4">
-                            <div class="flex justify-between text-[14px] font-Inter">
-                                <span class="font-medium text-neutral-black dark:text-muted-dark">Subtotal</span>
-                                <span class="font-medium text-dark-blue dark:text-neutral-white">$125.00</span>
+                    <div class="product-info">
+
+                        <div class="product-top">
+
+                            <div>
+                                <span class="product-category">
+                                    Electronics
+                                </span>
+
+                                <h2>
+                                    Premium Wireless Headphones
+                                </h2>
+
+                                <p>
+                                    High quality wireless headphones
+                                    with immersive sound.
+                                </p>
                             </div>
-                            <div class="flex justify-between text-[14px] font-Inter">
-                                <span class="font-medium text-neutral-black dark:text-muted-dark">Shipping</span>
-                                <span class="font-medium text-dark-blue dark:text-neutral-white">Free</span>
-                            </div>
-                            <div class="flex justify-between text-[14px] font-Inter">
-                                <span class="font-medium text-neutral-black dark:text-muted-dark">Tax</span>
-                                <span class="font-medium text-dark-blue dark:text-neutral-white">$3.75</span>
-                            </div>
-                            <hr class="border-neutral dark:border-border-dark my-6" />
-                            <div class="flex justify-between text-[14px] font-Inter font-bold">
-                                <span class="text-dark-blue dark:text-neutral-white">Total</span>
-                                <span class="text-dark-blue dark:text-neutral-white">$128.75</span>
-                            </div>
+
+                            <button class="remove-btn">
+                                ×
+                            </button>
+
                         </div>
 
-                        <button
-                            class="w-full text-[14px] bg-dark-blue dark:bg-neutral-white text-white dark:text-dark-blue py-[10px] rounded-[4px] mt-[32px] font-medium font-Inter hover:opacity-90 transition-opacity">
-                            Checkout
+                        <div class="product-bottom">
+
+                            <div class="quantity">
+
+                                <button>−</button>
+
+                                <span>1</span>
+
+                                <button>+</button>
+
+                            </div>
+
+                            <strong>
+                                $75.00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Product 2 -->
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <img src="./images/Product image copy.png" alt="Product">
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-top">
+
+                            <div>
+                                <span class="product-category">
+                                    Accessories
+                                </span>
+
+                                <h2>
+                                    Minimal Desk Accessory
+                                </h2>
+
+                                <p>
+                                    A simple and elegant accessory
+                                    for your workspace.
+                                </p>
+                            </div>
+
+                            <button class="remove-btn">
+                                ×
+                            </button>
+
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <div class="quantity">
+
+                                <button>−</button>
+
+                                <span>1</span>
+
+                                <button>+</button>
+
+                            </div>
+
+                            <strong>
+                                $22.00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Product 3 -->
+                <article class="product-card">
+
+                    <div class="product-image">
+                        <img src="./images/Product image.png" alt="Product">
+                    </div>
+
+                    <div class="product-info">
+
+                        <div class="product-top">
+
+                            <div>
+                                <span class="product-category">
+                                    Lifestyle
+                                </span>
+
+                                <h2>
+                                    Everyday Essentials
+                                </h2>
+
+                                <p>
+                                    Designed to make your everyday
+                                    experience easier.
+                                </p>
+                            </div>
+
+                            <button class="remove-btn">
+                                ×
+                            </button>
+
+                        </div>
+
+                        <div class="product-bottom">
+
+                            <div class="quantity">
+
+                                <button>−</button>
+
+                                <span>1</span>
+
+                                <button>+</button>
+
+                            </div>
+
+                            <strong>
+                                $28.00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Secure shopping -->
+                <div class="secure-box">
+
+                    <div class="secure-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong>Secure checkout</strong>
+
+                        <p>
+                            Your payment information is protected
+                            with secure encryption.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUMMARY ================= -->
+            <aside class="summary">
+
+                <div class="summary-header">
+                    <h2>Order summary</h2>
+
+                    <span>3 items</span>
+                </div>
+
+
+                <!-- Coupon -->
+                <div class="coupon">
+
+                    <label for="coupon">
+                        Have a promo code?
+                    </label>
+
+                    <div class="coupon-input">
+
+                        <input
+                            type="text"
+                            id="coupon"
+                            placeholder="Enter code"
+                        >
+
+                        <button>
+                            Apply
                         </button>
 
-                        <div class="text-center mt-6">
-                            <a href="#"
-                                class="text-sm font-medium text-dark-blue dark:text-neutral-white underline underline-offset-4 hover:text-neutral-black dark:hover:text-muted-dark">
-                                Continue Shopping
-                            </a>
-                        </div>
-                    </aside>
+                    </div>
+
                 </div>
-            </div>
+
+
+                <!-- Prices -->
+                <div class="summary-lines">
+
+                    <div>
+                        <span>Subtotal</span>
+                        <strong>$125.00</strong>
+                    </div>
+
+                    <div>
+                        <span>Shipping</span>
+                        <strong class="free">Free</strong>
+                    </div>
+
+                    <div>
+                        <span>Tax</span>
+                        <strong>$3.75</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Total -->
+                <div class="total">
+
+                    <span>Total</span>
+
+                    <strong>
+                        $128.75
+                    </strong>
+
+                </div>
+
+
+                <!-- Checkout -->
+                <button class="checkout-btn">
+                    Proceed to checkout
+                    <span>→</span>
+                </button>
+
+
+                <!-- Payment -->
+                <div class="payment-info">
+
+                    <span>🔒</span>
+
+                    <p>
+                        Secure payment · Free shipping
+                    </p>
+
+                </div>
+
+            </aside>
+
         </section>
+
     </main>
 
-    <footer class="bg-gray-50 dark:bg-card-dark border-t border-neutral dark:border-border-dark">
-        <div class="max-w-[1200px] mx-auto py-[60px] lg:py-[80px] px-6">
 
-            <div class="flex flex-wrap gap-10 justify-between">
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
 
-                <!-- LEFT -->
-                <div class="w-full sm:w-[320px]">
-                    <div class="flex items-center gap-3">
-                        <div class="flex items-center gap-[12px]">
-                            <img src="./images/Logomark copy.png" alt="logo-2" class="dark:invert">
-                            <h1 class="text-[20px] font-Manrope font-extrabold text-dark-blue dark:text-neutral-white">
-                                Ecommerce</h1>
-                        </div>
+        <div class="container footer-content">
+
+            <div>
+
+                <a href="#" class="logo">
+                    <div class="logo-mark">
+                        E
                     </div>
-                    <p class="text-[14px] font-Inter text-neutral-black dark:text-muted-dark max-w-[240px] leading-[175%] mt-[12px]">
-                        DevCut is a YouTube channel for practical project-based learning.
-                    </p>
-                    <div class="flex gap-5 mt-6">
-                        <div class="w-[24px] h-[20px]"><img src="./images/Github.png" alt="github" class="dark:invert"></div>
-                        <div class="w-[24px] h-[20px]"><img src="./images/Instagram.png" alt="instagram" class="dark:invert"></div>
-                        <div class="w-[24px] h-[20px]"><img src="./images/Youtube.png" alt="youtube" class="dark:invert"></div>
-                    </div>
-                </div>
 
-                <!-- SUPPORT -->
-                <div class="w-[140px]">
-                    <p class="text-xs font-semibold tracking-widest text-gray-500 dark:text-muted-dark">SUPPORT</p>
-                    <ul class="mt-6 space-y-4 text-sm text-gray-600 dark:text-neutral-white/80">
-                        <li><a href="#" class="hover:text-dark-blue dark:hover:text-white">FAQ</a></li>
-                        <li><a href="#" class="hover:text-dark-blue dark:hover:text-white">Terms of use</a></li>
-                        <li><a href="#" class="hover:text-dark-blue dark:hover:text-white">Privacy Policy</a></li>
-                    </ul>
-                </div>
+                    <span>Ecommerce</span>
+                </a>
 
-                <!-- COMPANY -->
-                <div class="w-[140px]">
-                    <p class="text-xs font-semibold tracking-widest text-gray-500 dark:text-muted-dark">COMPANY</p>
-                    <ul class="mt-6 space-y-4 text-sm text-gray-600 dark:text-neutral-white/80">
-                        <li><a href="#" class="hover:text-dark-blue dark:hover:text-white">About us</a></li>
-                        <li><a href="#" class="hover:text-dark-blue dark:hover:text-white">Contact</a></li>
-                        <li><a href="#" class="hover:text-dark-blue dark:hover:text-white">Careers</a></li>
-                    </ul>
-                </div>
-
-                <!-- SHOP -->
-                <div class="w-[140px]">
-                    <p class="text-xs font-semibold tracking-widest text-gray-500 dark:text-muted-dark">SHOP</p>
-                    <ul class="mt-6 space-y-4 text-sm text-gray-600 dark:text-neutral-white/80">
-                        <li><a href="#" class="hover:text-dark-blue dark:hover:text-white">My Account</a></li>
-                        <li><a href="#" class="hover:text-dark-blue dark:hover:text-white">Checkout</a></li>
-                        <li><a href="#" class="hover:text-dark-blue dark:hover:text-white">Cart</a></li>
-                    </ul>
-                </div>
-
-                <!-- PAYMENTS -->
-                <div class="w-[200px]">
-                    <p class="text-xs font-semibold tracking-widest text-gray-500 dark:text-muted-dark">ACCEPTED
-                        PAYMENTS</p>
-                    <div class="flex items-center gap-3 mt-6">
-                        <div class="w-11 h-8 rounded-md bg-white dark:bg-surface-dark border border-neutral dark:border-border-dark flex items-center justify-center">
-                            <img src="./images/Vector.png" alt="mastercard" class="w-6">
-                        </div>
-                        <div class="w-11 h-8 rounded-md bg-white dark:bg-surface-dark border border-neutral dark:border-border-dark flex items-center justify-center">
-                            <img src="./images/Vector copy 2.png" alt="amex" class="w-6">
-                        </div>
-                        <div class="w-11 h-8 rounded-md bg-white dark:bg-surface-dark border border-neutral dark:border-border-dark flex items-center justify-center">
-                            <img src="./images/Amex.png" alt="visa" class="w-6">
-                        </div>
-                    </div>
-                </div>
+                <p>
+                    Simple products. Better shopping.
+                </p>
 
             </div>
 
-            <hr class="border-neutral dark:border-border-dark my-[60px] lg:my-[80px]" />
+            <div class="footer-links">
 
-            <p class="text-center text-[14px] leading-[175%] text-neutral-black dark:text-muted-dark">
-                &copy; 2026 DevCut. All rights reserved.
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Support</a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Ecommerce. All rights reserved.
             </p>
 
         </div>
+
     </footer>
 
-    <script>
-        const html = document.documentElement;
-        const toggleBtn = document.getElementById('theme-toggle');
-        const toggleIcon = document.getElementById('theme-toggle-icon');
 
-        function syncIcon() {
-            // Show the "switch to dark" icon while in light mode, and vice versa.
-            const isDark = html.classList.contains('dark');
-            toggleIcon.src = isDark ? './images/lightMode.png' : './images/darkMode.png';
-            toggleBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    <!-- ================= THEME ================= -->
+    <script>
+
+        const themeToggle = document.getElementById("themeToggle");
+
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "light") {
+            document.body.classList.add("light");
+            themeToggle.textContent = "🌙";
         }
 
-        toggleBtn.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-            syncIcon();
+        themeToggle.addEventListener("click", () => {
+
+            document.body.classList.toggle("light");
+
+            const isLight =
+                document.body.classList.contains("light");
+
+            localStorage.setItem(
+                "theme",
+                isLight ? "light" : "dark"
+            );
+
+            themeToggle.textContent =
+                isLight ? "🌙" : "☀️";
+
         });
 
-        syncIcon();
     </script>
-</body>
 
+</body>
 </html>
